@@ -74,6 +74,20 @@ app.get('/articles', (req, res) => {
             res.json(err);
         });
 });
+// route for grabbing Article by id, populate with it's note
+app.get('/articles/:id', (req, res) => {
+    // find article through req.params.id
+    db.Article.findOne({ _id: req.params.id })
+    // populate with notes associated with it
+    .populate('note')
+    then((dbArticle) => {
+        // if find send back
+        res.json(dbArticle)
+    })
+    .catch((err) => {
+        res.json(err);
+    });
+});
 
 
 // Start the server
