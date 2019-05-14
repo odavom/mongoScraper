@@ -57,10 +57,24 @@ app.get('/scrape', (req, res) => {
                 .catch((err) => res.json(err));
         });
         // if all goes to plan send message 
-        res.send("Scrape Complete");
+        // res.send("Scrape Complete");
         res.redirect('/articles');
     });
 });
+// route for getting articles form DB
+app.get('/articles', (req, res) => {
+    // grab all the articles in collection
+    db.Article.find({})
+        .then((dbArticle) => {
+            // if found render them in in index.handlebars at dbArticle
+            res.render('index', { dbArticle } )
+        })
+        .catch((err) => {
+            // send error 
+            res.json(err);
+        });
+});
+
 
 // Start the server
 app.listen(PORT, () => {
