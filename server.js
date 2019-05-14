@@ -88,6 +88,18 @@ app.get('/articles/:id', (req, res) => {
         res.json(err);
     });
 });
+// route for saving/updating Article's associated note
+app.post('/articles/:id', (req, res) => {
+    // creat note and pass the req.body to entry
+    db.Note.create(req.body)
+        .then((dbNote) => db.Article.findOneAndUpdate({ _id: req.params.id }, { note: dbNote._id }, { new: true }))
+        .then((dbArticle) => {
+            res.json(dbArticle)
+        })
+        .catch((err) => {
+            res.json(err);
+        })
+});
 
 
 // Start the server
