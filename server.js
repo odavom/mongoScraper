@@ -33,6 +33,35 @@ app.get('/', (req, res) => {
     res.render('index');
 });
 
+// scrape quillette
+app.get('/scrape', (req, res) => {
+    axios.get('https://quillette.com').then((response) => {
+
+        const $ = cheerio.load(response.data);
+
+        $("h3.entry-title, h2.entry-title").each(function(i, element) {
+            // object to store the data in $
+            const result = {};
+            // for title this, which refers to h3.entry-title, h2. entry-title, .text() set to result.title
+            result.title = $(this).text();
+            // for link - a is a child of this with attr of href
+            result.link = $(this).children('a').attr('href')
+            // for summary - summary is class in p tag which is sibling of this
+            result.summary = $(this).siblings('p.summary').text();
+            // now that have title, link and summary
+            // create new article using result object
+            db.Article.create(result)
+                .then((dbArticle) => {
+                    console.log(dbArticle);
+                })
+                .catch((err) => res.json(err));
+        });
+        // if all goes to plan send message 
+        res.send("Scrape Complete");
+        res.redirect('/articles');
+    });
+});
+
 // Start the server
 app.listen(PORT, () => {
     console.log(`App running on port ${  PORT  }!`);
