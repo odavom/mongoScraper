@@ -1,7 +1,7 @@
-let mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
 // save ref to Schema constructor
-let Schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 // 
 const ArticleSchema = new Schema({
     title: {

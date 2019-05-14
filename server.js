@@ -9,7 +9,7 @@ const logger = require('morgan');
 const axios = require('axios');
 const cheerio = require('cheerio');
 // require models
-// const db = require('./models');
+const db = require('./models');
 
 const PORT = process.env.PORT || 3000;
 
