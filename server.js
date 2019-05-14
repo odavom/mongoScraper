@@ -28,6 +28,11 @@ app.set('view engine', 'handlebars');
 const MONGODB_URI = process.env.MONGOLAB_URI || 'mongodb://localhost/mongoHeadlines';
 mongoose.connect(MONGODB_URI);
 
+// render the index.handlebars
+app.get('/', (req, res) => {
+    res.render('index');
+});
+
 // Start the server
 app.listen(PORT, () => {
     console.log(`App running on port ${  PORT  }!`);
