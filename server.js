@@ -25,7 +25,7 @@ app.engine('handlebars', exphbs({ defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
 // connect to mongo db
-const MONGODB_URI = process.env.MONGOLAB_URI || 'mongodb://localhost/mongoHeadlines';
+const MONGODB_URI = process.env.MONGOLAB_TEAL_URI || 'mongodb://localhost/mongoHeadlines';
 mongoose.connect(MONGODB_URI);
 // mongoose.set('useFindAndModify', false);
 // mongoose.set('useCreateIndex', true);
