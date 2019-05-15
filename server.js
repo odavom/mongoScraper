@@ -80,7 +80,7 @@ app.get('/articles/:id', (req, res) => {
     db.Article.findOne({ _id: req.params.id })
     // populate with notes associated with it
     .populate('note')
-    then((dbArticle) => {
+    .then((dbArticle) => {
         // if find send back
         res.json(dbArticle)
     })
@@ -99,6 +99,16 @@ app.post('/articles/:id', (req, res) => {
         .catch((err) => {
             res.json(err);
         })
+});
+
+app.delete('/articles/:id', (req, res) => {
+
+    db.Note.remove().then((dbNote) => {
+        res.json(dbNote);
+    })
+    .catch((err) => {
+        res.json(err);
+    })
 });
 
 
