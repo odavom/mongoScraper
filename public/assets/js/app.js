@@ -27,7 +27,7 @@
     .then((data) => {
       // The title of the article
       $("#notes").append(`<h2> + ${data.title} + </h2>`)
-      $("#notes").append(`<input id='titleInput' name='title' >`)
+      $("#notes").append("<input id='titleInput' name='title' >")
       $("#notes").append(`<textarea id='bodyInput' name='body'></textarea>`);
       $("#notes").append(`<button class='btn btn-secondary' data-id=${data._id} id='savenote'>Save Note</button>`)
       $("#notes").append(`<button class='btn btn-secondary' data-id=${data._id} id='deletenote'>Delete Note</button>`)
