@@ -1,7 +1,7 @@
 
     
 body {
-  background-color: #f2f6d0;
+  background-color: black;
 }
 h1 {
   font-family: 'Ultra', serif;
@@ -80,9 +80,7 @@ textarea {
 p.card-text {
   cursor: pointer;
 }
-/* .footer-text {
-  color: #feff9c;
-} */
+
 a {
   color: red;
 }
