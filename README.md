@@ -8,6 +8,6 @@
 ..* Article `headline` and `summary` will populate the page
 3. Click `headline` to visit site to read article
 4. Click `summary` to access `note modal` to write notes about the article
-..* notes can be `saved` or `deleted`
-..* notes are saved to database and associated with that particular article
+* notes can be `saved` or `deleted`
+* notes are saved to database and associated with that particular article
 5. Enjoy!
