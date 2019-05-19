@@ -42,10 +42,10 @@ app.get('/scrape', (req, res) => {
 
         const $ = cheerio.load(response.data);
 
-        $("h3.entry-title, h2.entry-title").each(function(i, element) {
+        $("h3.entry-title").each(function(i, element) {
             // object to store the data in $
             const result = {};
-            // for title this, which refers to h3.entry-title, h2. entry-title, .text() set to result.title
+            // for title this, which refers to h3.entry-title, .text() set to result.title
             result.title = $(this).text();
             // for link - a is a child of this with attr of href
             result.link = $(this).children('a').attr('href')

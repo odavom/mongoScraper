@@ -12,7 +12,8 @@ h3 {
   font-size: 3em;
 }
 * {
-  font-family: 'Slabo 13px', serif;
+  font-family: 'Baloo Bhai', cursive;
+  font-family: 'Cinzel', serif;
 }
 h3:before {
   content: attr(data-text);
@@ -20,7 +21,7 @@ h3:before {
   overflow: hidden;
   max-width: 7em;
   white-space: nowrap;
-  color: #ff65a3;
+  color: red;
   animation: loading 8s linear;
 }
 @keyframes loading {
@@ -41,17 +42,17 @@ h3:before {
 }
 button#savenote,
 button#deletenote {
-  background-color: #ff65a3;
+  background-color: red;
 }
 
 #getArticles {
-  background: #ff65a3;
+  background: red;
 }
 textarea,
 input {
   display: block;
   width: 100%;
-  background-color: #feff9c;
+  background-color: yellow;
 }
 input {
   height: 36px;
@@ -75,13 +76,18 @@ textarea {
   width: 100%;
   height: 60px;
   line-height: 60px;
-  background-color: #7afcff;
+  background-color: red;
+}
+
+.footer-text a {
+  color: white;
 }
 p.card-text {
   cursor: pointer;
 }
 
-a {
+.card-title {
   color: red;
+  font-size: 36px;
 }
 

@@ -1,11 +1,4 @@
-// Grab the articles as a json
-// $.getJSON("/articles", (data) => { 
-//     // for each one
-//     for (let i = 0; i < data.length; i++) {
-//       // Display the article information on the page
-//       $("#articles").append(`<p data-id='${   data[i]._id  }'>${  data[i].title  }<br />${  data[i].link  }<br />${  data[i].summary  }</p`)
-//     }
-//   });
+
   // When pressing the scrape button
   $(document).on("click", "#getArticles", () => {
     $('#load').css("visibility", "visible");
@@ -51,7 +44,7 @@
   // Run a POST request to change the note, using what's entered in the inputs
   $.ajax({
     method: "POST",
-    url: `/articles/${  thisId}`,
+    url: `/articles/${thisId}`,
     data: {
       // Value taken from title input
       title: $("#titleInput").val(),
@@ -67,6 +60,7 @@
   // remove the values entered in the input and textarea for note entry
   $("#titleInput").val("");
   $('#bodyInput').val("");
+  $('#notesModal').modal('hide');
   });
   
   $(document).on("click", "#deletenote", function(event) {
@@ -84,8 +78,11 @@
       }
     })
     .then((data) => {
-      $("#titleInput").val("");
-      $("#bodyInput").val("");
+      
       $("#notes").empty();
-    })
+    });
+    $("#titleInput").val("");
+    $("#bodyInput").val("");
+    $('#notesModal').modal('hide');
+
   });
